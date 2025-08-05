@@ -5,9 +5,11 @@
 #include "coachDashboard.h"
 using namespace std; 
 
+vector <User> users;
+
+
 int main() {
 
-	vector <User> users;
 	int choice;
 	do {
 
