@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "User.h"
 #include "FitnessProfile.h"
 #include "coachDashboard.h"
@@ -6,6 +7,7 @@ using namespace std;
 
 int main() {
 
+	vector <User> users;
 	int choice;
 	do {
 
