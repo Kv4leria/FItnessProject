@@ -182,10 +182,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="coachDashboard.cpp" />
     <ClCompile Include="mainMenu.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="coachDashboard.h" />
     <ClInclude Include="FitnessProfile.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>

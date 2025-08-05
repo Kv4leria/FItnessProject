@@ -1,9 +1,11 @@
 #include <iostream>
 #include "User.h"
+#include "FitnessProfile.h"
+#include "coachDashboard.h"
 using namespace std; 
 
 int main() {
-	 
+
 	int choice;
 	do {
 
@@ -15,6 +17,29 @@ int main() {
 		cin >> choice;
 
 		//if (choice == 1)
+		
+		//else if (choice == 2)
+
+		/*else*/ if (choice == 3) {
+			string username, password;
+
+			FitnessProfile coachProfile{ 0.0,0.0,0.0,0,"", "" };
+			User demoCoach("demoCoach", "123", coachProfile);
+
+			cout << "------Login------" << endl;
+			cout << "Username: ";
+			cin >> username;
+			cout << "\nPassword: ";
+			cin >> password;
+			if (username == demoCoach.getUsername() && password == demoCoach.getPassword()) {
+				coachDashboard dashboard(demoCoach);
+				dashboard.run();
+			}
+			else {
+				cout << "Incorrect username or password";
+				continue;
+			}
+		}
 
 	} while (choice != 4);
 
