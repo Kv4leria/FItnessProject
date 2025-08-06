@@ -7,9 +7,10 @@ class coachDashboard {
 public:
 	coachDashboard(const User& loggedInCoach);
 	void run();
+	void addClientFromUser(User& user);
 
 private:
-	void addClientFromUser(User& user);
+	
 
 	User loggedInCoach;
 
