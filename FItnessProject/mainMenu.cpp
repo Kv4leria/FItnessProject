@@ -42,8 +42,6 @@ void registerUser(coachDashboard& dashboard) {
 	dashboard.addClientFromUser(users.back());
 
 	cout << "Registration successful! You've been assigned to a coach!" << endl;
-
-
 }
 
 
@@ -54,8 +52,6 @@ int main() {
 	coachDashboard dashboard(demoCoach);
 
 	int choice;
-
-
 	do {
 
 		cout << "\n -- Fitness Menu-- \n";
