@@ -37,8 +37,9 @@ private:
 		string name;
 		Workout workoutPlan;
 		Progress progress;
+		User* user; // pointer to the actual user object
 	public:
-		Client(const string& name);
+		Client(const string& name, User* userPtr); // updated constructor
 		string getName();
 		void viewClientProgress();
 		void viewClientWorkouts();

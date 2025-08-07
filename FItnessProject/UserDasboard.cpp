@@ -22,6 +22,7 @@ void userMenu(User& user) {
                 FitnessProfile p = user.getProfile();
                 cout << "\n--- Your Profile ---\n";
                 cout << "Current Weight: " << p.currentweight << " kg\n";
+                cout << "Current Weight: " << p.currentweight << " kg\n";
                 cout << "Goal Weight: " << p.goalWeight << " kg\n";
                 cout << "Height: " << p.height << " cm\n";
                 cout << "Age: " << p.age << "\n";

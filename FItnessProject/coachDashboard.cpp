@@ -147,4 +147,3 @@ void coachDashboard::run() {
 	clients.push_back(Client("Bob Smith"));
 	mainMenu();
 }
-
