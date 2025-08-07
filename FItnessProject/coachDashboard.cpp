@@ -39,7 +39,7 @@ void coachDashboard::Progress::viewProgress() {
 //The following methods take care of viewing specific clients and editing individual workouts
 coachDashboard::Client::Client(const std::string& name) : name(name) {}
 
-string coachDashboard::Client::Client::getName() {
+string coachDashboard::Client::getName() {
 	return name;
 }
 
@@ -147,4 +147,3 @@ void coachDashboard::run() {
 	clients.push_back(Client("Bob Smith"));
 	mainMenu();
 }
-
