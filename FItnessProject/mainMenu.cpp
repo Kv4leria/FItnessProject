@@ -42,6 +42,8 @@ void registerUser(coachDashboard& dashboard) {
 	dashboard.addClientFromUser(users.back());
 
 	cout << "Registration successful! You've been assigned to a coach!" << endl;
+
+
 }
 
 
@@ -52,6 +54,8 @@ int main() {
 	coachDashboard dashboard(demoCoach);
 
 	int choice;
+
+
 	do {
 
 		cout << "\n -- Fitness Menu-- \n";
@@ -61,35 +65,42 @@ int main() {
 		cout << "4. Exit" << endl;
 		cin >> choice;
 
-		if (choice == 1) {
-		
-			registerUser(dashboard);
-
-		}
-		
-	//else if
-
 		/*else*/ if (choice == 3) {
 			string username, password;
 
+			if (choice == 1) {
+
+				registerUser(dashboard);
+
+			}
+
+			//else if
+
+			else  if (choice == 3) {
+				string username, password;
+
+
+
+				cout << "------Login------" << endl;
+				cout << "Username: ";
+				cin >> username;
+				cout << "\nPassword: ";
+				cin >> password;
+				if (username == demoCoach.getUsername() && password == demoCoach.getPassword()) {
+					coachDashboard dashboard(demoCoach);
+					dashboard.run();
+				}
+				else {
+					cout << "Incorrect username or password";
+					continue;
+				}
+			}
+
+		}
 		
 
-			cout << "------Login------" << endl;
-			cout << "Username: ";
-			cin >> username;
-			cout << "\nPassword: ";
-			cin >> password;
-			if (username == demoCoach.getUsername() && password == demoCoach.getPassword()) {
-				coachDashboard dashboard(demoCoach);
-				dashboard.run();
-			}
-			else {
-				cout << "Incorrect username or password";
-				continue;
-			}
-		}
-
-	} while (choice != 4);
-
+		
+	}
+	while (choice != 4);
 	return (0);
 }
