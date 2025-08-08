@@ -60,34 +60,14 @@ int main() {
 		cout << "3. Login as a Coach" << endl;
 		cout << "4. Exit" << endl;
 		cin >> choice;
-=======
->>>>>>> parent of c4884ad (Update mainMenu.cpp)
 
 
-<<<<<<< HEAD
-		/*else*/ if (choice == 3) {
-			string username, password;
-=======
-	do {
+		if (choice == 1) {
+			registerUser(dashboard);
+		}
 
-		cout << "\n -- Fitness Menu-- \n";
-		cout << "1. Register" << endl;
-		cout << "2. Login as User" << endl;
-		cout << "3. Login as a Coach" << endl;
-		cout << "4. Exit" << endl;
-		cin >> choice;
->>>>>>> parent of c4884ad (Update mainMenu.cpp)
+		// else if (choice == 2)
 
-		/*else*/ if (choice == 3) {
-			string username, password;
-
-			if (choice == 1) {
-
-				registerUser(dashboard);
-
-			}
-
-			//else if
 
 			else  if (choice == 3) {
 				string username, password;
@@ -109,11 +89,10 @@ int main() {
 				}
 			}
 
-		}
-		
+	} while (choice != 4);
 
 		
+	cout << "Goodbye!" << endl;
+		
 	}
-	while (choice != 4);
-	return (0);
-}
+	
