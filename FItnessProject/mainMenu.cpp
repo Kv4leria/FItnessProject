@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
 #include "User.h"
 #include "FitnessProfile.h"
 #include "coachDashboard.h"
@@ -44,6 +45,53 @@ void registerUser(coachDashboard& dashboard) {
 	cout << "Registration successful! You've been assigned to a coach!" << endl;
 }
 
+void saveUsersToFile() {
+	ofstream outFile("users.txt");
+	for (User& user : users) {
+		FitnessProfile p = user.getProfile();
+		outFile << user.getUsername() << " " << user.getPassword() << " "
+			<< p.currentweight << " " << p.goalWeight << " " << p.height << " "
+			<< p.age << " " << p.gender << " " << p.activityLevel << endl;
+	}
+	outFile.close();
+}
+void loadUsersFromFile(coachDashboard& dashboard) {
+	ifstream inFile("users.txt");
+	string username, password, gender, activity;
+	double currentWeight, goalWeight, height;
+	int age;
+	while (inFile >> username >> password >> currentWeight >> goalWeight >> height >> age >> gender >> activity) {
+		FitnessProfile profile{ currentWeight, goalWeight, height, age, gender, activity };
+		User loadedUser(username, password, profile);
+		users.push_back(loadedUser);
+		dashboard.addClientFromUser(users.back());
+	}
+	inFile.close();
+}
+void userDashboard(User& user) {
+	int choice;
+	do {
+		cout << "\n--- User Dashboard ---\n";
+		cout << "1. View Workout Plan\n";
+		cout << "2. View Feedback\n";
+		cout << "3. Logout\n";
+		cout << "Choice: ";
+		cin >> choice;
+
+		if (choice == 1) {
+			vector<string> plan = user.getWorkoutPlan();
+			string days[7] = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+			for (int i = 0; i < 7; i++) {
+				cout << days[i] << ": " << plan[i] << endl;
+			}
+		}
+		else if (choice == 2) {
+			cout << "Feedback: " << user.getFeedback() << endl;
+		}
+
+	} while (choice != 3);
+}
+
 
 int main() {
 
@@ -66,7 +114,31 @@ int main() {
 			registerUser(dashboard);
 		}
 
-		// else if (choice == 2)
+		else if (choice == 2) {
+
+			string username, password;
+			bool loggedIn = false;
+
+			cout << "------ User Login ------" << endl;
+			cout << "Username: ";
+			cin >> username;
+			cout << "Password: ";
+			cin >> password;
+
+			for (User& user : users) {
+				cout << "[DEBUG] Checking user: " << user.getUsername() << endl;
+				if (user.getUsername() == username && user.getPassword() == password) {
+					cout << "Welcome, " << user.getUsername() << "!" << endl;
+					userDashboard(user);
+					loggedIn = true;
+					break;
+				}
+			}
+
+			if (!loggedIn) {
+				cout << "Incorrect username or password." << endl;
+			}
+		}
 
 
 			else  if (choice == 3) {
