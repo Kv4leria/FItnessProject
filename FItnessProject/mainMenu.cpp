@@ -43,6 +43,11 @@ void registerUser(coachDashboard& dashboard) {
 
 	cout << "Registration successful! You've been assigned to a coach!" << endl;
 
+<<<<<<< HEAD
+	cout << "Registration successful! You've been assigned to a coach!" << endl;
+
+=======
+>>>>>>> parent of c4884ad (Update mainMenu.cpp)
 
 }
 
@@ -54,6 +59,7 @@ int main() {
 	coachDashboard dashboard(demoCoach);
 
 	int choice;
+<<<<<<< HEAD
 
 
 	do {
@@ -64,6 +70,23 @@ int main() {
 		cout << "3. Login as a Coach" << endl;
 		cout << "4. Exit" << endl;
 		cin >> choice;
+=======
+>>>>>>> parent of c4884ad (Update mainMenu.cpp)
+
+
+<<<<<<< HEAD
+		/*else*/ if (choice == 3) {
+			string username, password;
+=======
+	do {
+
+		cout << "\n -- Fitness Menu-- \n";
+		cout << "1. Register" << endl;
+		cout << "2. Login as User" << endl;
+		cout << "3. Login as a Coach" << endl;
+		cout << "4. Exit" << endl;
+		cin >> choice;
+>>>>>>> parent of c4884ad (Update mainMenu.cpp)
 
 		if (choice == 1) {
 		
